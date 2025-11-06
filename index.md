@@ -19,18 +19,12 @@
 
 <div>
   <img src="ridge/kitusuru-1.jpg" width="33%" height="500px">
-  <img src="ridge/kitusuru-1.jpg" width="33%" height="500px">
-  <img src="ridge/kitusuru-1.jpg" width="33%" height="500px">
+  <img src="ridge/kitusuru-2.jpg" width="33%" height="500px">
+  <img src="ridge/kitusuru-3.jpg" width="33%" height="500px">
 </div>
 
 # A
 ## Kitisuru Ridge (Kitisuru, Nairobi)
-
-![Image](https://i.ytimg.com/vi/R5cj62KaT60/maxresdefault.jpg)
-
-![Image](https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/ba/39/c1/caption.jpg?h=500\&s=1\&w=900)
-
-![Image](https://images.prop24.com/oyddo2kkpnbkw4muo7xbheydau)
 
 Here’s a geological sketch of what’s going on (or likely going on) at Kitisuru Ridge in Nairobi — note: because I couldn’t locate a detailed published study *specifically* for Kitisuru Ridge, this is a synthesis of what is known for the broader Nairobi area, applied to the ridge. Treat it as informed hypotheses rather than fully established fact.
 
@@ -112,12 +106,12 @@ Nice — let’s turn that pipeline into a compact, semi-formal “translator”
 
 | Step (operator)                          |                                                                                 Plain mathematical meaning | Geological proxy / observable at Kitisuru Ridge                                                           | Compact symbolic simplification (hallucinated)                                        | Actionable implication                                                        |                                                                                           |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------: | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| **(E, x)**                               |                    E is the erosion / elevation state variable; x = location (on the ridge, slope, valley) | Rock type & resistance (trachyte/phonolite vs. tuff), slope angle, surface cover (soil, vegetation)       | `E(x)` = baseline elevation/erodibility map (function of lithology, slope)            | Map rock units & slope and assign `E0(x)` (initial condition)                 |                                                                                           |
-| **E(t | x) + ε**                         |                                                Expected state at time t given location x plus random noise | Expected erosion or elevation at time t given rainfall history, land use; ε = weather/anthropogenic noise | `E(t                                                                                  | x) ≈ E0(x) + f_rain(t,x) + ε(t,x)`                                            | Use rainfall record + land-use to predict mean trend; quantify uncertainty band           |
-| **dE_x/dt**                              |                                 Instantaneous rate of change (erosion rate; deposition rate negative sign) | Measured as mm/yr or m/yr: sheetwash, gullying, incision rate, soil loss                                  | `r(x,t) = dE/dt` — physical rate (m·yr⁻¹) driven by runoff intensity, slope, cohesion | Identify hotspots where `r` is high → slope remediation, drains, revegetation |                                                                                           |
-| **d²E_x/dt²**                            |                                               Acceleration of erosion (how the erosion *rate* is changing) | Storm pulses, landslide initiation, rapid undercutting where underlying material weaker                   | `a(x,t) = d²E/dt²` — positive spike indicates destabilization (landslide risk)        | Rapidly rising `a` needs urgent mitigation (retaining walls, slope regrading) |                                                                                           |
-| **∫ E_x dt + ε_x t + C_x**               | Cumulative integrated effect (total erosional loss/gain over time) plus linear drift and baseline constant | Long-term elevation loss, gully depth, cumulative sediment yield downstream                               | `S(x,T) = C_x + ε_x T + ∫_0^T E(t                                                     | x) dt` — net elevation change after time T                                    | Use for lifetime estimates (how much soil/rock lost in 5–30 yrs); design cut/fill volumes |
-| **Compressed / hallucinated meta-model** |                                                  A single compact predictive form that stitches the pieces | A one-line emulator for ridge behaviour under typical storm+land-use                                      | `E(t                                                                                  | x) ≈ C_x + E0(x) + r0(x) t + ½ a(x) t² + ε_x t`                               | Quick scenario runs; gives first-order numbers for planning                               |
+| **$(E, x)$**                               |                    E is the erosion / elevation state variable; x = location (on the ridge, slope, valley) | Rock type & resistance (trachyte/phonolite vs. tuff), slope angle, surface cover (soil, vegetation)       | $E(x)$ = baseline elevation/erodibility map (function of lithology, slope)            | Map rock units & slope and assign $E0(x)$ (initial condition)                 |                                                                                           |
+| **$E(t \mid x) + ε$**                         |                                                Expected state at time t given location x plus random noise | Expected erosion or elevation at time t given rainfall history, land use; ε = weather/anthropogenic noise | $E(t \mid x) ≈ E0(x) + f_rain(t,x) + ε(t,x)$                                            | Use rainfall record + land-use to predict mean trend; quantify uncertainty band           |
+| **$dE_x/dt$**                              |                                 Instantaneous rate of change (erosion rate; deposition rate negative sign) | Measured as mm/yr or m/yr: sheetwash, gullying, incision rate, soil loss                                  | $r(x,t) = dE/dt$ — physical rate (m·yr⁻¹) driven by runoff intensity, slope, cohesion | Identify hotspots where $r$ is high → slope remediation, drains, revegetation |                                                                                           |
+| **$d²E_x/dt²$**                            |                                               Acceleration of erosion (how the erosion *rate* is changing) | Storm pulses, landslide initiation, rapid undercutting where underlying material weaker                   | $a(x,t) = d²E/dt²$ — positive spike indicates destabilization (landslide risk)        | Rapidly rising $a$ needs urgent mitigation (retaining walls, slope regrading) |                                                                                           |
+| **$∫ E_x dt + ε_x t + C_x$**               | Cumulative integrated effect (total erosional loss/gain over time) plus linear drift and baseline constant | Long-term elevation loss, gully depth, cumulative sediment yield downstream                               | $S(x,T) = C_x + ε_x T + ∫_0^T E(t \mid x) dt$ — net elevation change after time T                                    | Use for lifetime estimates (how much soil/rock lost in 5–30 yrs); design cut/fill volumes |
+| **Compressed / hallucinated meta-model** |                                                  A single compact predictive form that stitches the pieces | A one-line emulator for ridge behaviour under typical storm+land-use                                      | $E(t \mid x) ≈ C_x + E0(x) + r0(x) t + ½ a(x) t² + ε_x t$                               | Quick scenario runs; gives first-order numbers for planning                               |
 
 ---
 
@@ -125,27 +119,27 @@ Nice — let’s turn that pipeline into a compact, semi-formal “translator”
 
 Assume locally we can expand the expected erosion as a low-order polynomial in time (a working hypothesis / hallucination):
 
-[
+$$
 E(t\mid x) = E_0(x) + r_0(x),t + \tfrac{1}{2} a(x),t^2
-]
+$$
 
 where
-• (E_0(x)) = initial elevation (or baseline erodibility term)
-• (r_0(x)=\left.\frac{dE}{dt}\right|_{t=0}) = initial erosion rate (m·yr⁻¹)
-• (a(x)=\frac{d^2E}{dt^2}) = acceleration (m·yr⁻²)
+• $E_0(x)$ = initial elevation (or baseline erodibility term)
+• $r_0(x=\left.\frac{dE}{dt}\right|_{t=0}$ = initial erosion rate $m·yr⁻¹$
+• $a(x)=\frac{d^2E}{dt^2}$ = acceleration $m·yr⁻²$
 Add stochastic drift/noise as your pipeline prescribes: (+\epsilon_x t) and constant (C_x).
 
 Integrate from 0 to (T):
 
-[
+$$
 \int_0^T E(t\mid x),dt = E_0 T + \tfrac{1}{2} r_0 T^2 + \tfrac{1}{6} a T^3
-]
+$$
 
 So the cumulative model matching your last operator is
 
-[
+$$
 S(x,T)=C_x + \epsilon_x T + E_0 T + \tfrac{1}{2} r_0 T^2 + \tfrac{1}{6} a T^3 .
-]
+$4
 
 That expression is compact, interpretable, and easy to plug numbers into for scenario work.
 
@@ -154,38 +148,38 @@ That expression is compact, interpretable, and easy to plug numbers into for sce
 ### Tiny worked toy example (hallucinated numbers for intuition only)
 
 Pick a patch on the ridge with:
-• (E_0 = 0) (use elevation *change* baseline),
-• initial erosion rate (r_0 = 0.10\ \text{m·yr}^{-1}) (10 cm/yr of net soil loss — plausible for exposed, gullied slopes),
-• acceleration (a = 0.02\ \text{m·yr}^{-2}) (small positive acceleration during wetter years),
-• noise/drift (\epsilon_x = 0.01\ \text{m·yr}^{-1}) (small stochastic drift),
-• (C_x = 0).
+• $E_0 = 0$ (use elevation *change* baseline),
+• initial erosion rate $r_0 = 0.10\ \text{m·yr}^{-1}$ (10 cm/yr of net soil loss — plausible for exposed, gullied slopes),
+• acceleration $a = 0.02\ \text{m·yr}^{-2}$ (small positive acceleration during wetter years),
+• noise/drift $\epsilon_x = 0.01\ \text{m·yr}^{-1}$ (small stochastic drift),
+• $C_x = 0$.
 
 Compute cumulative loss over (T=10) years:
 
-1. (E_0 T = 0 \times 10 = 0) m.
-2. (\tfrac{1}{2} r_0 T^2 = 0.5 \times 0.10 \times 100 = 0.5 \times 10 = 5.0) m.
-3. (\tfrac{1}{6} a T^3 = \tfrac{1}{6} \times 0.02 \times 1000 = \tfrac{1}{6} \times 20 = 3.333) m.
-4. (\epsilon_x T = 0.01 \times 10 = 0.10) m.
+1. $E_0 T = 0 \times 10 = 0$ m.
+2. $\tfrac{1}{2} r_0 T^2 = 0.5 \times 0.10 \times 100 = 0.5 \times 10 = 5.0$ m.
+3. $\tfrac{1}{6} a T^3 = \tfrac{1}{6} \times 0.02 \times 1000 = \tfrac{1}{6} \times 20 = 3.333$ m.
+4. $\epsilon_x T = 0.01 \times 10 = 0.10$ m.
 
-Sum: (S(x,10) \approx 0 + 0.10 + 5.0 + 3.333 = 8.433) m total of modeled elevation change (interpreted as cumulative erosional signature, remembering we hallucinated relatively large parameter choices to illustrate scale).
+Sum: $S(x,10) \approx 0 + 0.10 + 5.0 + 3.333 = 8.433$ m total of modeled elevation change (interpreted as cumulative erosional signature, remembering we hallucinated relatively large parameter choices to illustrate scale).
 
-Interpretation: with those parameter choices, the model *predicts* a big cumulative change (many metres) over 10 years — which flags the patch as extremely unstable and in need of urgent intervention. If you make (r_0) and (a) smaller (say 0.01 and 0.002 respectively), the cumulative loss drops by more than an order of magnitude.
+Interpretation: with those parameter choices, the model *predicts* a big cumulative change (many metres) over 10 years — which flags the patch as extremely unstable and in need of urgent intervention. If you make $r_0$ and $a$ smaller (say 0.01 and 0.002 respectively), the cumulative loss drops by more than an order of magnitude.
 
 ---
 
 ### Practical reading of the table & model (how to use it)
 
-* Use geological mapping (lithology + slope) to set (E_0(x)) and plausible ranges for (r_0(x), a(x)).
-* Calibrate (r_0) from short-term observations (erosion pins, repeated DGPS/topo surveys, drone photogrammetry).
-* Reserve (a(x)) for non-stationary drivers (land-use change, climate shifts, urban runoff increases).
-* Use the cumulative formula (S(x,T)) for cut/fill budgeting and for risk thresholds (e.g., >0.5 m loss in 5 years → remediation).
+* Use geological mapping (lithology + slope) to set $E_0(x)$ and plausible ranges for $r_0(x), a(x)$.
+* Calibrate $r_0$ from short-term observations (erosion pins, repeated DGPS/topo surveys, drone photogrammetry).
+* Reserve $a(x)$ for non-stationary drivers (land-use change, climate shifts, urban runoff increases).
+* Use the cumulative formula $S(x,T)$ for cut/fill budgeting and for risk thresholds (e.g., >0.5 m loss in 5 years → remediation).
 * Treat the whole thing as a compact emulator — fast, interpretable, but **not** a substitute for site geotech and continuous monitoring.
 
 ---
 
 We’ve effectively “compressed” the geological story into a small set of parameters you can estimate in the field and then run scenarios with. The fun part: the hallucination is explicit — pick parameter ranges consistent with local trachyte/phonolite behaviour and rainfall intensity, then run the emulator to find danger zones and design interventions.
 
-That’s the compressed engine. If you want, I can (a) convert this to a CSV/table you can open in Excel, (b) generate a small Monte Carlo ensemble of plausible `r0`/`a` values and give percentile outputs for `S(x,T)`, or (c) sketch simple field scripts for measuring `r0` and `a` in one weekend of work.
+That’s the compressed engine. If you want, I can (a) convert this to a CSV/table you can open in Excel, (b) generate a small Monte Carlo ensemble of plausible $r0$/$a$ values and give percentile outputs for $S(x,T)$, or (c) sketch simple field scripts for measuring $r0$ and $a$ in one weekend of work.
 
 # C
 Coming Soon..
