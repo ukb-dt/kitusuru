@@ -18,9 +18,9 @@
 {% endraw %}
 
 <div>
-  <img src="ridge/kitusuru-1.jpg" width="33%" height="500px">
-  <img src="ridge/kitusuru-2.jpg" width="33%" height="500px">
-  <img src="ridge/kitusuru-3.jpg" width="33%" height="500px">
+  <img src="ridge/kitusuru-1.jpg" width="29%" height="200px">
+  <img src="ridge/kitusuru-2.jpg" width="29%" height="200px">
+  <img src="ridge/kitusuru-3.jpg" width="29%" height="200px">
 </div>
 
 # A
